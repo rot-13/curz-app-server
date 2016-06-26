@@ -17,9 +17,10 @@ ActiveRecord::Schema.define(version: 20160626154552) do
   enable_extension "plpgsql"
 
   create_table "clips", force: :cascade do |t|
-    t.string "saved_title"
-    t.string "text"
+    t.string "title"
     t.string "url"
   end
+
+  add_index "clips", ["title"], name: "index_clips_on_title", unique: true, using: :btree
 
 end

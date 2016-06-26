@@ -1,9 +1,10 @@
 class CreateClips < ActiveRecord::Migration
   def change
     create_table :clips do |t|
-      t.string :saved_title
-      t.string :text
+      t.string :title
       t.string :url
+
+      t.index :title, unique: true
     end
   end
 end

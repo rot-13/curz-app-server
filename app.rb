@@ -18,3 +18,7 @@ post '/play' do
   end
   return "How do I put this..?"
 end
+
+post '/save' do
+  handle_save_url(params['title'], params['url'])
+end
