@@ -4,10 +4,10 @@ require './handlers'
 post '/play' do
   if params['file']
     handle_file(params['file'])
+    return "playing: #{params['file']['filename']}"
   elsif params['text']
     handle_text(params['text'])
-  elsif params['soundmoji']
-    handle_soundmoji(params['soundmoji'])
+    return "playing \"#{params['text']}\""
   end
-  return "playing..."
+  return "How do I put this..?"
 end
