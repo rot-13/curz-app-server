@@ -2,7 +2,6 @@ GEM
   remote: https://rubygems.org/
   specs:
     bond (0.5.1)
-    espeak-ruby (1.0.3)
     multipart-post (2.0.0)
     puma (3.4.0)
     rack (1.6.4)
@@ -34,7 +33,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  espeak-ruby
   multipart-post
   puma
   rake
