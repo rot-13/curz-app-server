@@ -19,7 +19,7 @@ def handle_url(url)
 end
 
 def handle_text(text)
-  file_path = "./public/text-#{Time.now.getutc}.mp3"
+  file_path = File.join(File.dirname(__FILE__), 'public', "text-#{Time.now.getutc}.mp3")
   speech = Speech.new(text)
   speech.save(file_path)
   File.open(file_path, 'r') do |file|
