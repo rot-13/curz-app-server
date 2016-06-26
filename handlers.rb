@@ -1,5 +1,6 @@
 require 'net/http'
 require 'net/http/post/multipart'
+require 'filemagic'
 
 STREAM_FILE_URI = URI('https://cpc-curz.herokuapp.com/play_file')
 STREAM_URL_URI  = URI('https://cpc-curz.herokuapp.com/play_url')
@@ -7,7 +8,8 @@ STREAM_TEXT_URI = URI('https://cpc-curz.herokuapp.com/play_text')
 
 def handle_file(file_object)
   file = file_object[:tempfile]
-  req = Net::HTTP::Post::Multipart.new STREAM_FILE_URI.path, 'file' => UploadIO.new(file)
+  mime_type = FileMagic.new(FileMagic::MAGIC_MIME).file(file)
+  req = Net::HTTP::Post::Multipart.new STREAM_FILE_URI.path, 'file' => UploadIO.new(file, mime_type)
   http.request(req)
 end
 

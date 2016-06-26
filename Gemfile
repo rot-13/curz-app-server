@@ -5,6 +5,7 @@ gem 'rake'
 gem 'puma'
 gem 'sinatra'
 gem 'multipart-post'
+gem 'ruby-filemagic'
 
 group :development do
   gem 'tux'
