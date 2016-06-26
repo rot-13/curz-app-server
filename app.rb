@@ -1,5 +1,9 @@
 require 'sinatra'
+require 'sinatra/activerecord'
 require './handlers'
+require './app/models/clip'
+
+set :database_file, 'config/database.yml'
 
 post '/play' do
   if params['file']

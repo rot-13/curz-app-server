@@ -5,6 +5,9 @@ gem 'rake'
 gem 'puma'
 gem 'sinatra'
 gem "espeak-ruby"
+gem 'activerecord'
+gem 'sinatra-activerecord'
+gem 'pg'
 
 group :development do
   gem 'tux'

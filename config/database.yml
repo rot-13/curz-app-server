@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 30
+  timeout: 5000
+
+development:
+  <<: *default
+  host: localhost
+  database: curz_dev
+
+test:
+  <<: *default
+  host: localhost
+  database: curz_test
+
+production:
+  <<: *default
+  database: curz_prod
