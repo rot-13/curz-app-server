@@ -4,6 +4,7 @@ ruby '2.3.0'
 gem 'rake'
 gem 'puma'
 gem 'sinatra'
+gem 'multipart-post'
 
 group :development do
   gem 'tux'

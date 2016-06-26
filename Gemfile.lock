@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     bond (0.5.1)
+    multipart-post (2.0.0)
     puma (3.4.0)
     rack (1.6.4)
     rack-protection (1.5.3)
@@ -32,6 +33,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  multipart-post
   puma
   rake
   sinatra
