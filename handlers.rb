@@ -1,11 +1,17 @@
 require 'net/http'
+require 'net/http/post/multipart'
 
 STREAM_FILE_URI = URI('https://cpc-curz.herokuapp.com/play_file')
 STREAM_URL_URI  = URI('https://cpc-curz.herokuapp.com/play_url')
 STREAM_TEXT_URI = URI('https://cpc-curz.herokuapp.com/play_text')
 
 def handle_file(file_object)
-  Net::HTTP.post_form(STREAM_FILE_URI, 'file' => file_object[:tempfile])
+  file = file_object[:tempfile]
+  ext = file_object[:filename].split('.').last
+  req = Net::HTTP::Post::Multipart.new(STREAM_FILE_URI.path, 'file' => UploadIO.new(file, "audio/#{ext}"))
+  http = Net::HTTP.new(STREAM_FILE_URI.host, STREAM_FILE_URI.port)
+  http.use_ssl = true
+  http.request(req)
 end
 
 def handle_url(url)
