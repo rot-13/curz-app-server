@@ -5,6 +5,9 @@ post '/play' do
   if params['file']
     handle_file(params['file'])
     return "playing: #{params['file'][:filename]}"
+  elsif params['url']
+    handle_url(params['url'])
+    return "playing: #{params['url']}"
   elsif params['text']
     handle_text(params['text'])
     return "playing \"#{params['text']}\""
