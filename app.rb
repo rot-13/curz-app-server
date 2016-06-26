@@ -2,7 +2,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require './handlers'
 require './app/models/clip'
-require 'config/environments'
+require './config/environments'
 
 post '/play' do
   if params['file']
