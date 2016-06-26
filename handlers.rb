@@ -7,7 +7,7 @@ STREAM_TEXT_URI = URI('https://cpc-curz.herokuapp.com/play_text')
 
 def handle_file(file_object)
   file = file_object[:tempfile]
-  req = Net::HTTP::Post::Multipart.new STREAM_FILE_URI.path, "file" => UploadIO.new(file)
+  req = Net::HTTP::Post::Multipart.new STREAM_FILE_URI.path, 'file' => UploadIO.new(file)
   http.request(req)
 end
 
