@@ -17,6 +17,7 @@ GEM
     arel (6.0.3)
     bond (0.5.1)
     builder (3.2.2)
+    byebug (9.0.5)
     i18n (0.7.0)
     json (1.8.3)
     minitest (5.9.0)
@@ -58,6 +59,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  byebug
   pg
   puma
   rake

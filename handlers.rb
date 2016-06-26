@@ -16,10 +16,17 @@ def handle_text(text)
   clips = Clip.where(title: text)
   if clips.present?
     Net::HTTP.post_form(STREAM_URL_URI, 'url' => clips.first.url)
+  else
+    Net::HTTP.post_form(STREAM_TEXT_URI, 'text' => text)
   end
-  Net::HTTP.post_form(STREAM_TEXT_URI, 'text' => text)
 end
 
 def handle_save_url(title, url)
-  Clip.create!(title: title, url: url)
+  if title.blank?
+    return
+  end
+
+  unless Clip.find_by(title: title)
+    Clip.create!(title: title, url: url)
+  end
 end

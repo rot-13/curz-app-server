@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'byebug'
 require './handlers'
 require './app/models/clip'
 
@@ -21,4 +22,5 @@ end
 
 post '/save' do
   handle_save_url(params['title'], params['url'])
+  return 'saved'
 end

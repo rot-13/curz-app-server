@@ -10,4 +10,5 @@ gem 'pg'
 
 group :development do
   gem 'tux'
+  gem 'byebug'
 end
