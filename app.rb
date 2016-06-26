@@ -3,6 +3,7 @@ require './handlers'
 
 post '/play' do
   if params['file']
+    puts params
     handle_file(params['file'])
     return "playing: #{params['file']['filename']}"
   elsif params['text']
