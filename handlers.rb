@@ -9,7 +9,6 @@ STREAM_URL_URI  = URI('https://cpc-curz.herokuapp.com/play_url')
 
 def handle_file(file_object)
   file = file_object[:tempfile]
-  mime_type = FileMagic.new(FileMagic::MAGIC_MIME).file(file)
   req = Net::HTTP::Post::Multipart.new(STREAM_FILE_URI.path, 'file' => UploadIO.new(file, 'audio/mp3'))
   http.request(req)
 end
